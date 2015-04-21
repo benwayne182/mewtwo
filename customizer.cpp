@@ -57,8 +57,8 @@ static BodyCustomizerHandle create(BodyHandle bodyHandle, const char* modelName)
         customizer = new Customizer;
         customizer->bodyHandle = bodyHandle;
         customizer->springT = 1.0e3;    
-        customizer->dampingT = 1.0e1;
-        int jointIndex = bodyInterface->getLinkIndexFromName(bodyHandle, "SPRING_JOINT");
+        customizer->dampingT = 100.0e1;
+        int jointIndex = bodyInterface->getLinkIndexFromName(bodyHandle, "CRANK_GEAR");
         if(jointIndex >=0 ){
             JointValSet& jointValSet = customizer->jointValSet;
             jointValSet.valuePtr = bodyInterface->getJointValuePtr(bodyHandle, jointIndex);
