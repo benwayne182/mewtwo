@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 include_directories(/opt/grx/include/OpenHRP-3.1)
 link_directories(/opt/grx/lib)
-set(libname SampleCustomizer)
+set(libname SampleCustomizerBis)
 
 set(sources customizer.cpp)
 
