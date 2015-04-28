@@ -42,7 +42,7 @@ struct Customizer
 static const char** getTargetModelNames()
 {
     static const char* names[] = { 
-        "robot2",
+        "springJoint",
         0 };
 	
     return names;
@@ -53,12 +53,12 @@ static BodyCustomizerHandle create(BodyHandle bodyHandle, const char* modelName)
     Customizer* customizer = 0;
 	
     string name(modelName);
-    if(name == "robot2"){
+    if(name == "springJoint"){
         customizer = new Customizer;
         customizer->bodyHandle = bodyHandle;
-        customizer->springT = 1.0e5;    
+        customizer->springT = 1.0e3;    
         customizer->dampingT = 1.0e1;
-        int jointIndex = bodyInterface->getLinkIndexFromName(bodyHandle, "SPRING_JOINT_BIS_2");
+        int jointIndex = bodyInterface->getLinkIndexFromName(bodyHandle, "SPRING_JOINT");
         if(jointIndex >=0 ){
             JointValSet& jointValSet = customizer->jointValSet;
             jointValSet.valuePtr = bodyInterface->getJointValuePtr(bodyHandle, jointIndex);
